@@ -20,12 +20,14 @@ public class EventGameController {
 
 	@RequestMapping(value = "/all", method = RequestMethod.GET)
 	public List<EventGame> getAllEventGames() {
-		return repository.findAll();
+		List<EventGame> response = repository.findAll();
+		return response;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
 	public EventGame getEventGameById(@PathVariable("id") ObjectId id) {
-		return repository.findBy_id(id);
+		EventGame response = repository.findBy_id(id);
+		return response;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
@@ -37,8 +39,8 @@ public class EventGameController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
 	public EventGame createEventGame(@Valid @RequestBody EventGame eventGame) {
 		eventGame.set_id(ObjectId.get());
-		repository.save(eventGame);
-		return eventGame;
+		EventGame response = repository.save(eventGame);
+		return response;
 	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
