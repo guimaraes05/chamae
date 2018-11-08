@@ -1,11 +1,11 @@
-package br.com.chamae.event_game_api.models;
+package br.com.chamae.gameEvent.models;
 
 import java.util.Objects;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 
-public class EventGame {
+public class GameEvent {
 	@Id
 	public ObjectId _id;
 
@@ -17,7 +17,7 @@ public class EventGame {
 	public Integer maxOfPlayers;
 	public Boolean isPrivate;
 
-	public EventGame() {
+	public GameEvent() {
 
 	}
 
@@ -31,7 +31,7 @@ public class EventGame {
 	 * @param maxOfPlayers
 	 * @param isPrivate
 	 */
-	public EventGame(ObjectId _id, String name, String description, String sportType, String location,
+	public GameEvent(ObjectId _id, String name, String description, String sportType, String location,
 			Integer minOfPlayers, Integer maxOfPlayers, Boolean isPrivate) {
 		this._id = _id;
 		this.name = name;
@@ -119,9 +119,9 @@ public class EventGame {
 			return true;
 		if (obj == null)
 			return false;
-		if (!(obj instanceof EventGame))
+		if (!(obj instanceof GameEvent))
 			return false;
-		EventGame other = (EventGame) obj;
+		GameEvent other = (GameEvent) obj;
 		return Objects.equals(_id, other._id) && Objects.equals(description, other.description)
 				&& Objects.equals(isPrivate, other.isPrivate) && Objects.equals(location, other.location)
 				&& Objects.equals(maxOfPlayers, other.maxOfPlayers) && Objects.equals(minOfPlayers, other.minOfPlayers)
@@ -135,7 +135,7 @@ public class EventGame {
 	 */
 	@Override
 	public String toString() {
-		return "EventGame [_id=" + _id + ", name=" + name + ", description=" + description + ", sportType=" + sportType
+		return "GameEvent [_id=" + _id + ", name=" + name + ", description=" + description + ", sportType=" + sportType
 				+ ", location=" + location + ", minOfPlayers=" + minOfPlayers + ", maxOfPlayers=" + maxOfPlayers
 				+ ", isPrivate=" + isPrivate + "]";
 	}
